@@ -27,7 +27,7 @@ services:
       - "--die-on-term"
 
   test:
-    image: warrior7089/todobackend-specs
+    image: jmenga/todobackend-specs
     links:
       - nginx
     environment:
