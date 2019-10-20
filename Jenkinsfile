@@ -1,5 +1,5 @@
 node {
-    git checkout scm
+    checkout scm
 
     try {
         stage 'Run unit/integration tests'
