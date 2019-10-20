@@ -51,7 +51,11 @@ test:
 	${INFO} "Running tests..."
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) up test
 	@ docker cp $$(docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) ps -q test):/reports/. reports
-	${CHECK} $(DEV_PROJECT) $(DEV_COMPOSE_FILE) test
+	${CHECK} $(DEV_PROJECT) $(DEV_COMPOSE_FILE) test	
+	${INFO} "Stopping db service"
+	@ docker-compose stop db
+	${INFO} "Removing db service"
+	@ docker-compose rm -f -v db
 	${INFO} "Testing complete"
 
 build:
