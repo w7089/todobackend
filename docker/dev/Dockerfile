@@ -2,7 +2,7 @@ FROM warrior7089/todobackend-base:latest
 
 # Install dev/build dependencies
 RUN apt-get update && \
-    apt-get install -qy python-dev default-libmysqlclient-dev
+    apt-get install -qy python-dev libmariadb-dev
 
 # PIP environment variables (NOTE: must be set after installing wheel)
 ENV WHEELHOUSE=/wheelhouse PIP_WHEEL_DIR=/wheelhouse PIP_FIND_LINKS=/wheelhouse XDG_CACHE_HOME=/cache
